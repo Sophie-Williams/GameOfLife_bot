@@ -3,7 +3,7 @@ import re
 import sys
 import twitter
 import markov
-from htmlentitydefs import name2codepoint as n2c
+from htmllib import name2codepoint as n2c
 from local_settings import *
 
 def connect():
