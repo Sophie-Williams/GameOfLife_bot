@@ -4,7 +4,7 @@ import sys
 import twitter
 import markov
 # from htmlentitydefs import name2codepoint as n2c
-import * from local_settings
+from local_settings import *
 
 def connect():
     api = twitter.Api(consumer_key=MY_CONSUMER_KEY,
