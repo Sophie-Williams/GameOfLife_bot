@@ -29,7 +29,8 @@ def getBoardFromFile(statefilename):
 
 def getBoardFromText(boardtext):
     board = [[0 for i in range(8)] for j in range(8)]
-    re.findall(r "\s*([^]*?)\s*", boardtext)
+    boardtext = re.sub(r'\n','', boardtext) #take out new lines.
+    boardtext = re.sub(r'\"|\(|\)', '', boardtext) #take out quotes.
     boardtextlist = list(boardtext)
     print(boardtextlist)
     for j in range(8):
