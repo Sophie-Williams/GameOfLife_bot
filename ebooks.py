@@ -18,23 +18,28 @@ def getBoardFromFile(statefilename):
     board = [[0 for i in range(8)] for j in range(8)]
     for line in f:
         if int(line) == 1:
-            board[i%8][i//8] = '⚫️'
+            board[i%8][i//8] = 1
         elif int(line) == 0:
-            board[i%8][i//8] = '⚪️'
+            board[i%8][i//8] = 0
         else:
-            board[i%8][i//8] = '🔴' #for error handling
+            board[i%8][i//8] = 5 #for error handling
         i+=1
     f.close()
     return board
 
 def rules(x, y):
-    return board[x][y]+'*'
+    return board[x][y]+7
 
 def getStringFromBoard():
     boardstr = ""
     for j in range(8):
         for i in range(8):
-            boardstr += str(board[i][j])
+            if board[i][j] == 1:
+                boardstr += '⚫️'
+            elif board[i][j] == 0:
+                boardstr += '⚪️'
+            else:
+                boardstr += '🔴'
         boardstr += '\n'
     return boardstr
 
