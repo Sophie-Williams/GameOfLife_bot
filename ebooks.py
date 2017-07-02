@@ -34,7 +34,7 @@ def getBoardFromText(boardtext):
     boardtext = boardtext.replace("⚫️", "X")
     boardtext = boardtext.replace("⚪️", "_")
     boardtextlist = list(boardtext)
-    print(boardtextlist)
+    # print(boardtextlist)
     for j in range(8):
         for i in range(8):
             if (boardtextlist[i+(j*8)] == 'X'):
