@@ -11,10 +11,37 @@ def connect():
                           access_token_secret=MY_ACCESS_TOKEN_SECRET)
     return api
 
+def getBoardFromFile(statefilename):
+    f = open(statefilename, 'r+')
+    f.readline()
+    i = 0
+    for line in f:
+        if int(line) == 1:
+            board[i%8][i/8] = '⚫️'
+        elif int(line) == 0:
+            board[i%8][i/8] = '⚪️'
+        else:
+            board[i%8][i/8] = '🔴' #for error handling
+        i++
+
+    f.close()
+
+def getStringFromBoard(board):
+    for j in range(8):
+        for i in range(8):
+            boardstr+=board[i][j]
+        boardstr+='\n'
+
+
 if __name__=='__main__':
     api = connect()
 
-    tweet = 'Hello twitter!'
+    board = [[0 for i in range(8)] for j in range(8)]
+    board = getBoardFromFile('state.txt')
+    boardstr = ''
+    boardstr = getStringFromBoard(board)
+
+    tweet = boardstr
 
     print (tweet)
-    status = api.PostUpdate(tweet)
+    #status = api.PostUpdate(tweet)
