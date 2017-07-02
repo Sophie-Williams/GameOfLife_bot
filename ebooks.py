@@ -31,13 +31,15 @@ def getBoardFromText(boardtext):
     board = [[0 for i in range(8)] for j in range(8)]
     boardtext = re.sub(r'\n','', boardtext) #take out new lines.
     boardtext = re.sub(r'\"|\(|\)', '', boardtext) #take out quotes.
+    boardtext = boardtext.replace("⚫️", "X")
+    boardtext = boardtext.replace("⚪️", "_")
     boardtextlist = list(boardtext)
     print(boardtextlist)
     for j in range(8):
         for i in range(8):
-            if (boardtextlist[i+(j*8)] == '⚫️'):
+            if (boardtextlist[i+(j*8)] == 'X'):
                 board[i][j] = 1
-            elif (boardtextlist[i+(j*8)] == '⚪️'):
+            elif (boardtextlist[i+(j*8)] == '_'):
                 board[i][j] = 0
             else:
                 board[i][j] = 5
@@ -93,7 +95,7 @@ def getStringFromBoard(b):
             elif b[i][j] == 0:
                 bs += '⚪️'
             else:
-                bs += '?'
+                bs += '🔴'
         bs += '\n'
     return bs
 
