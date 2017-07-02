@@ -24,7 +24,7 @@ def getBoardFromFile(statefilename):
         else:
             board[i%8][i//8] = 5 #for error handling
         i+=1
-    f.close()
+    #f.close()
     return board
 
 def countNeighbors(x, y):
@@ -89,7 +89,7 @@ def getNextGenFromBoard():
     return nextboard
 
 def writeNewGenToFile(statefilename):
-    f = open(statefilename, 'w+')
+    #f = open(statefilename, 'w+')
     for j in range(8):
         for i in range(8):
             f.write(str(nextboard[i][j]) + '\n')
@@ -109,7 +109,7 @@ if __name__=='__main__':
 
     writeNewGenToFile('state.txt')
 
-    print('Last gen:')
+    print('Read from file:')
     print (boardstr)
     print('New gen to be tweeted and written:')
     print (nextboardstr)
