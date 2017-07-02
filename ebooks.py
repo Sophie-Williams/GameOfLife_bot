@@ -15,6 +15,7 @@ def getBoardFromFile(statefilename):
     f = open(statefilename, 'r+')
     f.readline()
     i = 0
+    board = [[0 for i in range(8)] for j in range(8)]
     for line in f:
         if int(line) == 1:
             board[i%8][i//8] = '⚫️'
@@ -27,6 +28,7 @@ def getBoardFromFile(statefilename):
     f.close()
 
 def getStringFromBoard(board):
+    boardstr = ''
     for j in range(8):
         for i in range(8):
             boardstr+=board[i][j]
