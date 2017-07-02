@@ -17,11 +17,11 @@ def getBoardFromFile(statefilename):
     i = 0
     for line in f:
         if int(line) == 1:
-            board[i%8][i/8] = '⚫️'
+            board[i%8][i//8] = '⚫️'
         elif int(line) == 0:
-            board[i%8][i/8] = '⚪️'
+            board[i%8][i//8] = '⚪️'
         else:
-            board[i%8][i/8] = '🔴' #for error handling
+            board[i%8][i//8] = '🔴' #for error handling
         i+=1
 
     f.close()
