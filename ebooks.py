@@ -33,9 +33,9 @@ def getBoardFromText(boardtext):
     boardtextlist = list(boardtext)
     for j in range(8):
         for i in range(8):
-            if (boardtextlist[i+j] = '⚫️'):
+            if (boardtextlist[i+j] == '⚫️'):
                 board[i][j] = 1
-            elif (boardtextlist[i+j] = '⚪️'):
+            elif (boardtextlist[i+j] == '⚪️'):
                 board[i][j] = 0
             else:
                 board[i][j] = 5
