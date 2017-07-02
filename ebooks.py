@@ -92,7 +92,7 @@ def writeNewGenToFile(statefilename):
     f = open(statefilename, 'r+')
     for j in range(8):
         for i in range(8):
-            f.write(nextboard[i][j] + '\n')
+            f.write(str(nextboard[i][j]) + '\n')
     f.close()
 
 if __name__=='__main__':
