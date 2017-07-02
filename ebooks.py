@@ -28,7 +28,7 @@ def getBoardFromFile(statefilename):
     return board
 
 def rules(x, y):
-    return board[x][y]+7
+    return board[x][y]+'*'
 
 def getStringFromBoard():
     boardstr = ""
