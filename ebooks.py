@@ -29,11 +29,7 @@ def getBoardFromFile(statefilename):
 
 def getBoardFromText(boardtext):
     board = [[0 for i in range(8)] for j in range(8)]
-    boardtext.strip(',  \n')
     boardtextlist = list(boardtext)
-    print(boardtextlist)
-    for item in boardtextlist:
-        item.strip(',  \n')
     print(boardtextlist)
     for j in range(8):
         for i in range(8):
