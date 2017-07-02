@@ -24,11 +24,9 @@ def getAllFactorsFor(remainder):
 if __name__=='__main__':
     api = connect()
 
-    #4 hours ahead of GR
+    #UTC is 4 hours ahead of GR
     date = time.strftime('%m/%d/%y')
-    date = '07/01/17'
     dateint = int(time.strftime('%m%d%y'))
-    dateint = 70117
     factors = getAllFactorsFor(dateint)
     factorstr = ''
 
