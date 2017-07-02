@@ -88,6 +88,13 @@ def getNextGenFromBoard():
             nextboard[i][j] = rules(i, j)
     return nextboard
 
+def writeNewGenToFile(statefilename):
+    f = open(statefilename, 'r+')
+    for j in range(8):
+        for i in range(8):
+            f.write(nextboard[i][j] + '\n')
+    f.close()
+
 if __name__=='__main__':
     api = connect()
 
@@ -100,6 +107,10 @@ if __name__=='__main__':
     nextboard = getNextGenFromBoard()
     nextboardstr = getStringFromBoard(nextboard)
 
+    writeNewGenToFile('state.txt')
+
+    print('Last gen:')
     print (boardstr)
+    print('New gen to be tweeted and written:')
     print (nextboardstr)
     #status = api.PostUpdate(tweet)
