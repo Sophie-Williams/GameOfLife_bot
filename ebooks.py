@@ -28,7 +28,7 @@ def getBoardFromFile(statefilename):
     return board
 
 def getBoardFromText(boardtext):
-    board = [[0 for i in range(8)] for j in range(8)]
+    oldboard = [[0 for i in range(8)] for j in range(8)]
     boardtext = re.sub(r'\n','', boardtext) #take out new lines.
     boardtext = re.sub(r'\"|\(|\)', '', boardtext) #take out quotes.
     boardtextlist = list(boardtext)
@@ -36,12 +36,12 @@ def getBoardFromText(boardtext):
     for j in range(8):
         for i in range(8):
             if (boardtextlist[i+j] == 'X'):
-                board[i][j] = 1
+                oldboard[i][j] = 1
             elif (boardtextlist[i+j] == '_'):
-                board[i][j] = 0
+                oldboard[i][j] = 0
             else:
-                board[i][j] = 5
-    return board
+                oldboard[i][j] = 5
+    return oldboard
 
 def countNeighbors(x, y):
     count = 0
@@ -93,7 +93,7 @@ def getStringFromBoard(b):
             elif b[i][j] == 0:
                 bs += '_'
             else:
-                bs += '🔴'
+                bs += '?'
         bs += '\n'
     return bs
 
@@ -127,7 +127,7 @@ if __name__=='__main__':
 
 
     print(api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text)
-    print('Read from file:')
+    print('Read from tweet:')
     print (boardstr)
     print('New gen to be tweeted and written:')
     print (nextboardstr)
