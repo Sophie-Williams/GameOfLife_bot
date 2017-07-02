@@ -27,6 +27,9 @@ def getBoardFromFile(statefilename):
     f.close()
     return board
 
+def rules(x, y):
+    return board[x][y]+7
+
 def getStringFromBoard():
     boardstr = ""
     for j in range(8):
@@ -35,6 +38,13 @@ def getStringFromBoard():
         boardstr += '\n'
     return boardstr
 
+def getNextGenFromBoard():
+    nextboard = board
+    for j in range(8):
+        for i in range(8):
+            nextboard[i][j] = rules(i, j)
+    print(nextboard)
+    return nextboard
 
 if __name__=='__main__':
     api = connect()
@@ -43,8 +53,10 @@ if __name__=='__main__':
     board = getBoardFromFile('state.txt')
     boardstr = ''
     boardstr = getStringFromBoard()
-
     tweet = boardstr
+
+    nextboard = board
+    nextboard = getNextGenFromBoard()
 
     print (tweet)
     #status = api.PostUpdate(tweet)
