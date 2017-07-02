@@ -109,6 +109,7 @@ if __name__=='__main__':
 
     writeNewGenToFile('state.txt')
 
+    print(api.GetUserTimeline(screen_name=gameoflife_bot, count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True))
     print('Read from file:')
     print (boardstr)
     print('New gen to be tweeted and written:')
