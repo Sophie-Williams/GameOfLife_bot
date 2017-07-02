@@ -90,6 +90,8 @@ def getNextGenFromBoard():
 
 def writeNewGenToFile(statefilename):
     f = open(statefilename, 'r+')
+    f.seek(0)
+    f.truncate()
     for j in range(8):
         for i in range(8):
             f.write(str(nextboard[i][j]) + '\n')
