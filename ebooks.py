@@ -28,20 +28,20 @@ def getBoardFromFile(statefilename):
     return board
 
 def getBoardFromText(boardtext):
-    oldboard = [[0 for i in range(8)] for j in range(8)]
+    board = [[0 for i in range(8)] for j in range(8)]
     boardtext = re.sub(r'\n','', boardtext) #take out new lines.
     boardtext = re.sub(r'\"|\(|\)', '', boardtext) #take out quotes.
     boardtextlist = list(boardtext)
     print(boardtextlist)
     for j in range(8):
         for i in range(8):
-            if (boardtextlist[i+j] == 'X'):
-                oldboard[i][j] = 1
-            elif (boardtextlist[i+j] == '_'):
-                oldboard[i][j] = 0
+            if (boardtextlist[(i*8)+j] == 'X'):
+                board[i][j] = 1
+            elif (boardtextlist[(i*8)+j] == '_'):
+                board[i][j] = 0
             else:
-                oldboard[i][j] = 5
-    return oldboard
+                board[i][j] = 5
+    return board
 
 def countNeighbors(x, y):
     count = 0
