@@ -73,11 +73,11 @@ def getStringFromBoard(b):
     for j in range(8):
         for i in range(8):
             if b[i][j] == 1:
-                bs += '⚫️'
+                bs += '⚫️ '
             elif b[i][j] == 0:
-                bs += '⚪️'
+                bs += '⚪️ '
             else:
-                bs += '🔴'
+                bs += '🔴 '
         bs += '\n'
     return bs
 
