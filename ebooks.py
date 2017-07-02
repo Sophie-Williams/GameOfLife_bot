@@ -29,9 +29,9 @@ def getBoardFromFile(statefilename):
 
 def getStringFromBoard():
     boardstr = ""
-    for j in range(7):
-        for i in range(7):
-            boardstr += str(board[i][j])
+    for j in range(8):
+        for i in range(8):
+            boardstr += str(board[i-1][j-1])
         boardstr += '\n'
     return boardstr
 
