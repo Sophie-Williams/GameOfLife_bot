@@ -82,7 +82,7 @@ def getStringFromBoard(b):
     return bs
 
 def getNextGenFromBoard():
-    nextboard = board
+    nextboard = [[0 for i in range(8)] for j in range(8)]
     for j in range(8):
         for i in range(8):
             nextboard[i][j] = rules(i, j)
