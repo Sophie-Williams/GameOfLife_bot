@@ -52,13 +52,13 @@ def countNeighbors(x, y):
 # Any live cell with more than three live neighbors dies, as if by over-population.
 # Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 def rules(x, y):
-    if (countNeighbors(x, y)<2 && board[x][y]==1):
+    if (countNeighbors(x, y)<2 and board[x][y]==1):
         return 0
-    elif (1 < countNeighbors(x, y) < 4 && board[x][y]==1):
+    elif (1 < countNeighbors(x, y) < 4 and board[x][y]==1):
         return 1
-    elif (countNeighbors(x, y) > 3 && board[x][y]==1):
+    elif (countNeighbors(x, y) > 3 and board[x][y]==1):
         return 0
-    elif (countNeighbors(x, y) == 3 && board[x][y]==0):
+    elif (countNeighbors(x, y) == 3 and board[x][y]==0):
         return 1
     else:
         return 5
