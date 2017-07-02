@@ -27,7 +27,7 @@ def getBoardFromFile(statefilename):
 
     f.close()
 
-def getStringFromBoard(board):
+def getStringFromBoard():
     boardstr = ''
     for j in range(8):
         for i in range(8):
@@ -42,7 +42,7 @@ if __name__=='__main__':
     board = [[0 for i in range(8)] for j in range(8)]
     board = getBoardFromFile('state.txt')
     boardstr = ''
-    boardstr = getStringFromBoard(board)
+    boardstr = getStringFromBoard()
 
     tweet = boardstr
 
