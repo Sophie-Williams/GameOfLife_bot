@@ -27,6 +27,15 @@ def getBoardFromFile(statefilename):
     f.close()
     return board
 
+def getBoardFromText(boardtext):
+    board = [[0 for i in range(8)] for j in range(8)]
+    boardtext.rstrip()
+    boardtextlist = list(boardtext)
+    for j in range(8):
+        for i in range(8):
+            board[i][j] = boardtextlist[i+j]
+    return board
+
 def countNeighbors(x, y):
     count = 0
     if (board[x][(y-1)%8]==1):
@@ -98,8 +107,10 @@ def writeNewGenToFile(statefilename):
 if __name__=='__main__':
     api = connect()
 
+    boardtext = api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text
+
     board = [[0 for i in range(8)] for j in range(8)]
-    board = getBoardFromFile('state.txt')
+    board = getBoardFromText(boardtext)
     boardstr = ''
     boardstr = getStringFromBoard(board)
 
@@ -107,7 +118,6 @@ if __name__=='__main__':
     nextboard = getNextGenFromBoard()
     nextboardstr = getStringFromBoard(nextboard)
 
-    writeNewGenToFile('state.txt')
 
     print(api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text)
     print('Read from file:')
