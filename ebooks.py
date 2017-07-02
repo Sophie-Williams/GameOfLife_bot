@@ -22,7 +22,7 @@ def getBoardFromFile(statefilename):
             board[i%8][i/8] = '⚪️'
         else:
             board[i%8][i/8] = '🔴' #for error handling
-        i++
+        i+=1
 
     f.close()
 
