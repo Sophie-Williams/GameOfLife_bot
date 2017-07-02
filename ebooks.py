@@ -43,7 +43,7 @@ def getStringFromBoard(b):
         bs += '\n'
     return bs
 
-def getNextGenFromBoard(b):
+def getNextGenFromBoard():
     nextboard = board
     for j in range(8):
         for i in range(8):
