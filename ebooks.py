@@ -38,7 +38,7 @@ if __name__=='__main__':
                 factorstr += ' x '
         factorstr += '.'
     elif len(factors) == 0:
-        factorstr += (' prime. Cool!')
+        factorstr += ('prime. Cool!')
 
     tweet = 'Today is ' + date + '. ' + str(dateint) + ' is ' + factorstr
 
