@@ -31,7 +31,7 @@ def getStringFromBoard(board):
     boardstr = ''
     for j in range(8):
         for i in range(8):
-            boardstr+=board[i][j]
+            boardstr += str(board[i][j])
         boardstr+='\n'
 
 
