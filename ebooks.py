@@ -136,6 +136,6 @@ if __name__=='__main__':
     # print (boardstr)
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
-    if !alife:
+    if not alife:
         nextboard = 'This population is extinct. Stand by. @bathwater4jess'
     status = api.PostUpdate(nextboardstr)
