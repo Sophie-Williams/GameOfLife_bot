@@ -100,7 +100,7 @@ def writeNewGenToFile(statefilename):
     f.close()
 
 if __name__=='__main__':
-    alife=False
+    alife = False
     api = connect()
 
     boardtext = api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text
@@ -121,6 +121,6 @@ if __name__=='__main__':
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
     if alife==False:
-        nextboard = 'This population is extinct. Stand by. @bathwater4jess'
+        nextboardstr = 'This population is extinct. Stand by. @bathwater4jess'
 
     status = api.PostUpdate(nextboardstr)
