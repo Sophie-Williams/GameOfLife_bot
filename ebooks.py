@@ -13,7 +13,6 @@ def connect():
 
 def getBoardFromText(boardtext):
     board = [[0 for i in range(8)] for j in range(8)]
-    alife = False
     boardtext = re.sub(r'\n','', boardtext) #take out new lines.
     boardtext = re.sub(r'\"|\(|\)', '', boardtext) #take out quotes.
     boardtext = boardtext.replace("🔵", "X")
