@@ -4,8 +4,6 @@ import sys
 import twitter
 from local_settings import *
 
-alife = False
-
 def connect():
     api = twitter.Api(consumer_key=MY_CONSUMER_KEY,
                           consumer_secret=MY_CONSUMER_SECRET,
@@ -13,25 +11,9 @@ def connect():
                           access_token_secret=MY_ACCESS_TOKEN_SECRET)
     return api
 
-def getBoardFromFile(statefilename):
-    f = open(statefilename, 'r+')
-    f.readline()
-    i = 0
-    board = [[0 for i in range(8)] for j in range(8)]
-    for line in f:
-        if int(line) == 1:
-            board[i%8][i//8] = 1
-            alife = True
-        elif int(line) == 0:
-            board[i%8][i//8] = 0
-        else:
-            board[i%8][i//8] = 5 #for error handling
-        i+=1
-    f.close()
-    return board
-
 def getBoardFromText(boardtext):
     board = [[0 for i in range(8)] for j in range(8)]
+    alife = False
     boardtext = re.sub(r'\n','', boardtext) #take out new lines.
     boardtext = re.sub(r'\"|\(|\)', '', boardtext) #take out quotes.
     boardtext = boardtext.replace("🔵", "X")
@@ -42,6 +24,7 @@ def getBoardFromText(boardtext):
         for i in range(8):
             if (boardtextlist[i+(j*8)] == 'X'):
                 board[i][j] = 1
+                alife = True
             elif (boardtextlist[i+(j*8)] == '_'):
                 board[i][j] = 0
             else:
@@ -136,6 +119,7 @@ if __name__=='__main__':
     # print (boardstr)
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
-    if not alife:
+    if alife==False:
         nextboard = 'This population is extinct. Stand by. @bathwater4jess'
+
     status = api.PostUpdate(nextboardstr)
