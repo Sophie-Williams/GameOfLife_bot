@@ -23,7 +23,6 @@ def getBoardFromText(boardtext):
         for i in range(8):
             if (boardtextlist[i+(j*8)] == 'X'):
                 board[i][j] = 1
-                alife = True
             elif (boardtextlist[i+(j*8)] == '_'):
                 board[i][j] = 0
             else:
@@ -99,7 +98,6 @@ def writeNewGenToFile(statefilename):
     f.close()
 
 if __name__=='__main__':
-    alife = False
     api = connect()
 
     boardtext = api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text
@@ -121,9 +119,10 @@ if __name__=='__main__':
     # print (boardstr)
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
-    if alife==False:
+    if '🔵' not in boardtext:
         nextboardstr = 'This population is extinct. Stand by. @bathwater4jess'
     if nextboardstr == boardstr:
         nextboardstr = 'Population is locked. Stand by. @bathwater4jess'
 
+    print(nextboardstr)
     status = api.PostUpdate(nextboardstr)
