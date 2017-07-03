@@ -104,7 +104,8 @@ if __name__=='__main__':
     api = connect()
 
     boardtext = api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text
-
+    if boardtext = 'This population is extinct. Stand by. @bathwater4jess':
+        sys.exit()
     board = [[0 for i in range(8)] for j in range(8)]
     board = getBoardFromText(boardtext)
     boardstr = ''
