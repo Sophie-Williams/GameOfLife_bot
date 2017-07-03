@@ -100,6 +100,7 @@ def writeNewGenToFile(statefilename):
     f.close()
 
 if __name__=='__main__':
+    alife=False
     api = connect()
 
     boardtext = api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text
