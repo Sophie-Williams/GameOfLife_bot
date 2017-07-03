@@ -4,6 +4,8 @@ import sys
 import twitter
 from local_settings import *
 
+alife = False
+
 def connect():
     api = twitter.Api(consumer_key=MY_CONSUMER_KEY,
                           consumer_secret=MY_CONSUMER_SECRET,
@@ -19,6 +21,7 @@ def getBoardFromFile(statefilename):
     for line in f:
         if int(line) == 1:
             board[i%8][i//8] = 1
+            alife = True
         elif int(line) == 0:
             board[i%8][i//8] = 0
         else:
@@ -133,4 +136,6 @@ if __name__=='__main__':
     # print (boardstr)
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
+    if !alife:
+        nextboard = 'This population is extinct. Stand by. @bathwater4jess'
     status = api.PostUpdate(nextboardstr)
