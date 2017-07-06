@@ -123,7 +123,7 @@ if __name__=='__main__':
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
     if '🔵' not in boardtext:
-        nextboardstr = 'This population is extinct. so I\'ll generate a new board randomly'
+        nextboardstr = 'This population is extinct, so I\'ll generate a new board randomly.'
     if nextboardstr == boardstr:
         nextboardstr = 'Population is locked, so I\'ll generate a new board randomly.'
 
