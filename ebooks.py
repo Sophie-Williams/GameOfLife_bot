@@ -90,19 +90,22 @@ def getNextGenFromBoard():
             nextboard[i][j] = rules(i, j)
     return nextboard
 
-def writeNewGenToFile(statefilename):
-    f = open(statefilename, 'w')
+def generateRandomBoard():
+    randboard = [[0 for i in range(8)] for j in range(8)]
     for j in range(8):
         for i in range(8):
-            f.write(str(nextboard[i][j]) + '\n')
-    f.close()
+            randboard[i][j] = random.randint(0, 1)
+    return randboard
 
 if __name__=='__main__':
     api = connect()
 
     boardtext = api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text
     if '⚪️' not in boardtext:
-        print('Last tweet was all text. Aborting.')
+        #Last board was a text message. Generate random board.
+        nextboardstr = getStringFromBoard(generateRandomBoard())
+        print(nextboardstr)
+        status = api.PostUpdate(nextboardstr)
         sys.exit()
     board = [[0 for i in range(8)] for j in range(8)]
     board = getBoardFromText(boardtext)
@@ -120,9 +123,9 @@ if __name__=='__main__':
     # print('New gen to be tweeted and written:')
     # print (nextboardstr)
     if '🔵' not in boardtext:
-        nextboardstr = 'This population is extinct. Stand by. @bathwater4jess'
+        nextboardstr = 'This population is extinct. so I\'ll generate a new board randomly'
     if nextboardstr == boardstr:
-        nextboardstr = 'Population is locked. Stand by. @bathwater4jess'
+        nextboardstr = 'Population is locked, so I\'ll generate a new board randomly.'
 
     print(nextboardstr)
     status = api.PostUpdate(nextboardstr)
