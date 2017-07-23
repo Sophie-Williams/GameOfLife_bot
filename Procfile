@@ -1,1 +1,1 @@
-worker2: python ebooks.py
+worker2: python gameoflife.py

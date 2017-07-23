@@ -116,12 +116,6 @@ if __name__=='__main__':
     nextboard = getNextGenFromBoard()
     nextboardstr = getStringFromBoard(nextboard)
 
-
-    # print(api.GetUserTimeline(screen_name='gameoflife_bot', count=1, max_id=None, include_rts=False, trim_user=True, exclude_replies=True)[0].text)
-    # print('Read from tweet:')
-    # print (boardstr)
-    # print('New gen to be tweeted and written:')
-    # print (nextboardstr)
     if '🔵' not in boardtext:
         nextboardstr = 'This population is extinct, so I\'ll generate a new board randomly.'
     if nextboardstr == boardstr:
