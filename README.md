@@ -11,3 +11,4 @@ The code is pushed to a Heroku app, and tweets hourly using a Heroku scheduler, 
 ## Acknowledgments
 
 * Twitter API connection and basic structure taken from [this Science Friday tutorial](https://medium.com/science-friday-footnotes/how-to-make-a-twitter-bot-in-under-an-hour-259597558acf).
+* The [Numberphile Youtube channel](https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A), for introducing me to Conway's "no-player" Game [in a video](https://www.youtube.com/watch?v=R9Plq-D1gEk)
