@@ -6,7 +6,7 @@ Watch it go [@gameoflife_bot](https://twitter.com/gameoflife_bot)
 
 ## Details
 
-<uh you need heroku and it runs hourly using a scheduler>
+The code is pushed to a Heroku app, and tweets hourly using a Heroku scheduler, calling `tweet`. It can also be manually triggered to tweet by navigating to the local repository and running `heroku run tweet`.
 
 ## Acknowledgments
 
