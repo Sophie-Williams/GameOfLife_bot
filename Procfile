@@ -1,1 +1,1 @@
-worker2: python gameoflife.py
+tweet: python gameoflife.py
